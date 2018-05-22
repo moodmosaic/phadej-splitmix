@@ -100,6 +100,7 @@ test-suite splitmix-dieharder
     splitmix,
     random,
     deepseq,
+    hedgehog              >=0.6,
     async                 >=2.2.1    && <2.3,
     vector                >=0.12.0.1 && <0.13,
     base-compat-batteries >=0.10.1   && <0.11,

@@ -30,6 +30,7 @@ import qualified System.Random.SplitMix       as SM
 import qualified System.Random.TF             as TF
 import qualified System.Random.TF.Gen         as TF
 import qualified System.Random.TF.Init        as TF
+import qualified Hedgehog.Internal.Seed       as H
 
 main :: IO ()
 main = do
@@ -52,6 +53,9 @@ main = do
               "tfrandom"      -> do
                   g <- TF.initTFGen
                   run test runs conc TF.split tfNext64 g
+              "hedgehog-splitmix" -> do
+                  g <- maybe H.random (return . H.from) seed
+                  run test runs conc H.split H.nextWord64 g
               _               -> return ()
 
 tfNext64 :: TF.TFGen -> (Word64, TF.TFGen)
