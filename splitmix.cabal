@@ -75,6 +75,7 @@ benchmark comparison
     base,
     splitmix,
     random,
+    hedgehog   >=0.6,
     containers >=0.5     && <0.6,
     tf-random  >=0.5     && <0.6,
     criterion  >=1.1.0.0 && <1.5
